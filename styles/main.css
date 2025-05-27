@@ -1,0 +1,666 @@
+/*!
+ * Bootstrap v4.0.0 (https://getbootstrap.com)
+ * Copyright 2011-2018 The Bootstrap Authors
+ * Copyright 2011-2018 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+:root {
+    /* PDF Style Palette - Dark Theme Example */
+    --pdf-bg-color: #f3efea; /* Very dark grey for main background */
+    --pdf-bg-light-section: #f8f7f6; /* Slightly lighter for alternate sections */
+    --pdf-text-color: #000000; /* Off-white/light grey for text */
+    --pdf-accent-color: #d4af37; /* Gold/Bronze accent */
+    --pdf-accent-hover-color: #b89b2e; /* Darker gold for hover */
+    --pdf-script-font: 'Great Vibes', cursive;
+    --pdf-body-font: 'Noto Serif KR', serif; /* Or 'Lora', serif; 'Roboto', sans-serif */
+    --pdf-heading-font: 'Lora', serif; /* Or 'Roboto', sans-serif */
+
+    /* Bootstrap variable overrides (optional, or handle directly) */
+    --primary: var(--pdf-accent-color);
+    --light: var(--pdf-bg-light-section); /* For .bg-light elements if not using custom class */
+    --dark: var(--pdf-bg-color);  /* For .bg-dark elements */
+
+    /* Standard Bootstrap variables (kept for grid/utilities if not overridden) */
+    --blue: #007bff;
+    --indigo: #6610f2;
+    --purple: #6f42c1;
+    --pink: #e83e8c;
+    --red: #dc3545;
+    --orange: #fd7e14;
+    --yellow: #ffc107;
+    --green: #28a745;
+    --teal: #20c997;
+    --cyan: #17a2b8;
+    --white: #fff;
+    --gray: #868e96; /* Adjusted for dark theme readability if used directly */
+    --gray-dark: #343a40; /* Original Bootstrap gray-dark */
+    
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --font-family-sans-serif: var(--pdf-body-font); /* Defaulting to our chosen body font */
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+*,
+*::before,
+*::after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: sans-serif;
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -ms-overflow-style: scrollbar;
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: var(--pdf-body-font);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.7;
+    color: var(--pdf-text-color);
+    text-align: left;
+    background-color: var(--pdf-bg-color);
+}
+
+/* --- Typography & Basic Elements --- */
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    font-family: var(--pdf-heading-font);
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--pdf-text-color);
+}
+h1, .h1 { font-size: 2.8rem; }
+h2, .h2 { font-size: 2.2rem; }
+h3, .h3 { font-size: 1.8rem; }
+h4, .h4 { font-size: 1.5rem; }
+
+p {
+    margin-top: 0;
+    margin-bottom: 1.25rem;
+}
+
+a {
+    color: var(--pdf-accent-color);
+    text-decoration: none;
+}
+a:hover {
+    color: var(--pdf-accent-hover-color);
+    text-decoration: none; /* Underline can be added if preferred */
+}
+
+hr {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* --- Navigation Bar --- */
+.ww-nav-bar {
+    background-color: rgba(23,70,61,255); /* Semi-transparent dark */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    padding: 0.5rem 0;
+}
+.ww-nav-bar .navbar-brand {
+    color: var(--pdf-accent-color) !important;
+    font-size: 1.8rem;
+    font-weight: normal;
+}
+.ww-nav-bar .navbar-nav .nav-link {
+    color: rgb(255, 255, 255);
+    font-family: var(--pdf-heading-font);
+    font-weight: 400;
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+.ww-nav-bar .navbar-nav .nav-link:hover,
+.ww-nav-bar .navbar-nav .nav-item.active .nav-link { /* Assuming you might add 'active' class with JS */
+    color: var(--pdf-accent-color) !important;
+}
+.navbar-toggler {
+    border-color: rgba(255,255,255,0.2);
+}
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(224, 224, 224, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.pdf-intro-text {
+  font-size: 1.25rem;  /* 20px */
+  font-weight: 500;
+  font-family: 'Lora', serif;  /* atau font yang kamu pakai di undangan */
+  color: var(--inv-text);      /* atau warna khusus jika kamu ingin berbeda */
+  margin-bottom: 1.5rem;
+}
+
+
+/* --- Page Content & Sections --- */
+.page-content {
+    overflow-x: hidden; /* Prevent horizontal scroll from AOS */
+}
+.ww-section {
+    padding: 80px 0;
+}
+.ww-section:nth-child(odd) { /* Optional: alternate bg for sections */
+   /* background-color: var(--pdf-bg-light-section); */
+}   
+.container {
+    max-width: 960px; /* Default max width */
+}
+@media (min-width: 1200px) {
+    .container { max-width: 1140px; }
+}
+
+/* Section Titles */
+.ww-title-pdf-section {
+    font-family: var(--pdf-script-font);
+    color: var(--pdf-accent-color);
+    font-size: 3.5rem;
+    margin-bottom: 2.5rem;
+    font-weight: normal;
+}
+@media (max-width: 768px) {
+    .ww-title-pdf-section {
+        font-size: 2.8rem;
+    }
+}
+
+
+/* --- Home Section (Hero) --- */
+.ww-home-page {
+    min-height: 100vh;
+    background-color: var(--pdf-bg-color); /* Match body or specific dark */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 15px;
+    color: var(--pdf-text-color);
+}
+.ww-wedding-announcement .ww-announcement-container {
+    max-width: 700px;
+}
+.pdf-intro-text {
+    font-size: 1.1rem;
+    font-style: italic;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+    color: rgba(0, 0, 0, 0.9);
+}
+.pdf-style-couple-names-hero {
+    margin: 2rem 0;
+}
+.ww-couple-name-pdf {
+    font-family: var(--pdf-script-font);
+    font-size: 4.5rem; /* Prominent size */
+    color: var(--pdf-accent-color);
+    line-height: 1.1;
+    margin: 0;
+}
+.ww-ampersand-pdf {
+    font-family: var(--pdf-script-font);
+    font-size: 3.5rem;
+    color: var(--pdf-accent-color);
+    margin: 0.5rem 0;
+}
+@media (max-width: 768px) {
+    .ww-couple-name-pdf { font-size: 3.5rem; }
+    .ww-ampersand-pdf { font-size: 2.8rem; }
+}
+
+.pdf-date-block-hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin: 2rem auto;
+  font-family: 'Lora', serif;
+  color: var(--inv-text);
+}
+.pdf-date-ags {
+    font-size: 4.5rem;
+    font-weight: bold;
+    color: var(--pdf-text-color);
+    line-height: 1;
+    letter-spacing: 1px;
+}
+.pdf-date-day-year {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    line-height: 1;
+    margin: 8px 0;
+}
+.pdf-date-day {
+    font-size: 1.1rem;
+    font-weight: 700; /* Bold */
+    letter-spacing: 1.5px;
+    margin-right: 10px;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.9);
+}
+.pdf-date-year {
+    font-size: 1.1rem;
+    letter-spacing: 1.5px;
+    color: rgba(0, 0, 0, 0.9);
+}
+.pdf-date-num {
+    font-size: 4rem;
+    font-weight: bold;
+    color: var(--pdf-text-color);
+    line-height: 1;
+}
+
+
+.date-side {
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.date-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem 1.2rem;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+
+.date-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.date-number {
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: var(--inv-accent); /* atau hijau daun */
+  margin-top: 0.2rem;
+}
+
+.pdf-date-block-hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  font-family: 'Lora', serif;
+  margin-bottom: 1rem;
+}
+
+.date-side {
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.date-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem 1.5rem;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+
+.date-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.date-number {
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: var(--inv-accent);
+  margin-top: 0.2rem;
+}
+
+/* Event Details */
+.event-details {
+  margin-top: 2rem;
+}
+
+.event-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #d4af37; /* emas seperti di gambar */
+  margin-bottom: 0.5rem;
+}
+
+.event-time {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.event-location {
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 500px;
+  margin: auto;
+}
+
+.ww-event-title-pdf {
+    font-family: var(--pdf-heading-font);
+    font-size: 1.5rem;
+    color: var(--pdf-accent-color);
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-bottom: 0.3rem;
+}
+.ww-event-time-pdf {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: rgba(0, 0, 0, 0.9);
+}
+.ww-event-venue-pdf {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+/* --- Couple Section --- */
+#couple .ww-person-name-pdf {
+    font-family: var(--pdf-script-font);
+    font-size: 2.5rem;
+    color: var(--pdf-accent-color);
+    margin-bottom: 0.5rem;
+}
+#couple .pdf-parent-names-section {
+    font-size: 0.9rem;
+    color: var(--pdf-text-color);
+    opacity: 0.8;
+    margin-bottom: 1rem;
+}
+#couple .img-fluid {
+    border: 5px solid rgba(255,255,255,0.1);
+    max-width: 250px; /* Control image size */
+    margin: 0 auto; /* Center if col is wider */
+}
+
+/* --- Events Section --- */
+.bg-light-pdf { /* Custom class for alternating section bg */
+    background-color: var(--pdf-bg-light-section);
+}
+#events .pdf-venue-name {
+    font-family: var(--pdf-heading-font);
+    font-size: 1.6rem;
+    color: var(--pdf-text-color);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+#events ul {
+    list-style: none;
+    padding-left: 0;
+}
+#events ul li {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+#events .text-muted-pdf, #events .text-muted { /* Override Bootstrap's .text-muted for dark theme */
+    color: rgba(120, 0, 0, 0.7) !important;
+}
+#events .fas, #events .far { /* Font awesome icons */
+    color: var(--pdf-accent-color);
+    margin-right: 8px;
+}
+.btn-primary-pdf { /* Custom button style for PDF theme */
+    background-color: var(--pdf-accent-color);
+    border-color: var(--pdf-accent-color);
+    color: #fff; /* White text on gold button */
+    padding: 0.6rem 1.5rem;
+    font-family: var(--pdf-heading-font);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.btn-primary-pdf:hover {
+    background-color: var(--pdf-accent-hover-color);
+    border-color: var(--pdf-accent-hover-color);
+    color: #fff;
+}
+#events .img-fluid {
+    border: 5px solid rgba(255,255,255,0.1);
+}
+
+
+/* --- Gallery Section --- */
+#gallery .card-columns {
+    column-gap: 1rem;
+}
+#gallery .card {
+    background-color: transparent;
+    border: 1px solid rgba(255,255,255,0.1); /* Subtle border for cards */
+    margin-bottom: 1rem;
+    border-radius: 4px; /* Slight rounding */
+    overflow: hidden; /* Ensure image respects border radius */
+}
+#gallery .card .img-fluid {
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    display: block;
+}
+#gallery .card a:hover .img-fluid {
+    transform: scale(1.05);
+    opacity: 0.8;
+}
+/* Ekko Lightbox specific styling (optional, if defaults don't fit) */
+.ekko-lightbox .modal-content {
+    background-color: var(--pdf-bg-color);
+    border-color: rgba(255,255,255,0.2);
+}
+.ekko-lightbox .modal-header {
+    border-bottom-color: rgba(255,255,255,0.1);
+    color: var(--pdf-text-color);
+}
+.ekko-lightbox .modal-header .close {
+    color: var(--pdf-text-color);
+    opacity: 0.7;
+}
+.ekko-lightbox .modal-header .close:hover {
+    opacity: 1;
+}
+.ekko-lightbox-nav-overlay a {
+    color: var(--pdf-accent-color);
+    opacity: 0.7;
+    font-size: 2rem; /* Make arrows more prominent */
+    text-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.ekko-lightbox-nav-overlay a:hover {
+    opacity: 1;
+}
+
+
+/* --- Gifts Section --- */
+.gifts-section { /* Was #gifts */
+    color: var(--pdf-text-color);
+}
+.gifts-section .ww-gift-section-content {
+    padding: 30px 0;
+}
+.gifts-section .pdf-closing-text {
+    font-size: 1.1rem;
+    font-style: italic;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: rgba(0, 0, 0, 0.9);
+}
+.pdf-final-names-section {
+    font-family: var(--pdf-script-font);
+    font-size: 2.8rem;
+    color: var(--pdf-accent-color);
+    margin-top: 1rem;
+    margin-bottom: 2.5rem;
+}
+.gifts-section h5 {
+    color: var(--pdf-text-color);
+    font-family: var(--pdf-heading-font);
+    font-weight: 700;
+}
+.gifts-section p {
+    color: rgba(0, 0, 0, 0.8);
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--pdf-bg-color); /* Consistent with body or slightly different dark */
+    padding: 2rem 0;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+footer .text-muted-pdf {
+    color: rgba(0, 0, 0, 0.6) !important;
+}
+
+/* --- Music Player --- */
+.bottom_left {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1030; /* Ensure it's above most content but below modals if any */
+}
+.bottom_left .fa-music {
+    cursor: pointer;
+    color: var(--pdf-text-color);
+    background-color: rgba(0,0,0,0.3);
+    padding: 12px;
+    border-radius: 50%;
+    font-size: 1.2rem; /* fa-2x makes it 2em, this sets base */
+    transition: color 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+.bottom_left .fa-music:hover {
+    color: var(--pdf-accent-color);
+    background-color: rgba(0,0,0,0.5);
+}
+.bottom_left .fa-music.playing {
+    color: var(--pdf-accent-color);
+}
+
+/* --- AOS Animation Adjustments (Optional) --- */
+[data-aos] {
+    transition-property: transform, opacity; /* Default properties */
+}
+[data-aos="fade-up"] {
+  transform: translate3d(0, 30px, 0); /* Slightly more noticeable */
+}
+
+
+/* --- REMOVE OLD STYLES --- */
+/* It is CRUCIAL to remove or comment out styles from the old theme
+   that might conflict. This includes:
+   - Old .ww-home-page, .ww-wedding-announcement background images and specific colorings
+   - Old .ww-nav-bar background and text colors
+   - Styles for .ww-couple-friends (if that section was different)
+   - Old .ww-title if it conflicts with .ww-title-pdf-section
+   - Specific color overrides for buttons, links, text that used the old palette
+   - Parallax window styles for the old gift section
+   - Any explicit height/min-height settings that might constrain new flexible layouts.
+*/
+
+/* Example of commenting out old style */
+/*
+.ww-home-page .ww-wedding-announcement .ww-couple-name {
+    font-size: 70px; // Old style
+}
+*/
+
+/* Map icon is not in the PDF style by default, hide if not reimplemented */
+.map-icon {
+    display: none;
+}
+
+/* Bootstrap utility class overrides if needed */
+.text-muted { /* Ensure Bootstrap's .text-muted is also styled for dark theme if used */
+    color: rgba(224, 224, 224, 0.7) !important;
+}
+
+
+/* Invitation-Themed Styling */
+
+/* Warna & Font */
+:root {
+  --inv-bg: #ffffff;
+  --inv-text: #2d4d3a;
+  --inv-accent: #4f6f52;
+  --inv-serif: 'Playfair Display', serif;
+  --inv-sans: 'Lora', serif;
+}
+
+/* Base Styling */
+body {
+  background: var(--inv-bg);
+  color: var(--inv-text);
+  font-family: var(--inv-sans);
+  text-align: center;
+}
+
+/* Nama Mempelai */
+.ww-couple-name-pdf {
+  font-family: var(--inv-serif);
+  font-weight: 700;
+  font-size: 2rem;
+  color: var(--inv-text);
+}
+
+/* Teks biasa */
+.pdf-intro-text,
+.pdf-parent-names-section,
+.ww-event-venue-pdf,
+.ww-event-time-pdf {
+  font-size: 1rem;
+  font-family: var(--inv-sans);
+  color: var(--inv-text);
+}
+
+/* Tanggal Blok */
+.pdf-date-block-hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--inv-sans);
+  margin: 2rem 0;
+}
+.pdf-date-day, .pdf-date-ags, .pdf-date-year {
+  margin: 0 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+}
+.pdf-date-num {
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--inv-accent);
+}
+
+/* Penutup */
+.pdf-final-names-section {
+  font-family: var(--inv-serif);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--inv-text);
+}
+
+/* Dekorasi Background */
+body::before {
+  content: "";
+  background: url('images/bg-floral.png') no-repeat center center;
+  background-size: cover;
+  opacity: 0.1;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: -1;
+}
