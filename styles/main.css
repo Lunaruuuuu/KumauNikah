@@ -144,7 +144,6 @@ hr {
   margin-bottom: 1.5rem;
 }
 
-
 /* --- Page Content & Sections --- */
 .page-content {
     overflow-x: hidden; /* Prevent horizontal scroll from AOS */
@@ -411,7 +410,7 @@ hr {
     margin-bottom: 0.5rem;
 }
 #events .text-muted-pdf, #events .text-muted { /* Override Bootstrap's .text-muted for dark theme */
-    color: rgba(120, 0, 0, 0.7) !important;
+    color: rgba(0, 0, 0, 0.7) !important;
 }
 #events .fas, #events .far { /* Font awesome icons */
     color: var(--pdf-accent-color);
@@ -439,53 +438,7 @@ hr {
 }
 
 
-/* --- Gallery Section --- */
-#gallery .card-columns {
-    column-gap: 1rem;
-}
-#gallery .card {
-    background-color: transparent;
-    border: 1px solid rgba(255,255,255,0.1); /* Subtle border for cards */
-    margin-bottom: 1rem;
-    border-radius: 4px; /* Slight rounding */
-    overflow: hidden; /* Ensure image respects border radius */
-}
-#gallery .card .img-fluid {
-    transition: transform 0.4s ease, opacity 0.4s ease;
-    display: block;
-}
-#gallery .card a:hover .img-fluid {
-    transform: scale(1.05);
-    opacity: 0.8;
-}
-/* Ekko Lightbox specific styling (optional, if defaults don't fit) */
-.ekko-lightbox .modal-content {
-    background-color: var(--pdf-bg-color);
-    border-color: rgba(255,255,255,0.2);
-}
-.ekko-lightbox .modal-header {
-    border-bottom-color: rgba(255,255,255,0.1);
-    color: var(--pdf-text-color);
-}
-.ekko-lightbox .modal-header .close {
-    color: var(--pdf-text-color);
-    opacity: 0.7;
-}
-.ekko-lightbox .modal-header .close:hover {
-    opacity: 1;
-}
-.ekko-lightbox-nav-overlay a {
-    color: var(--pdf-accent-color);
-    opacity: 0.7;
-    font-size: 2rem; /* Make arrows more prominent */
-    text-shadow: 0 0 10px rgba(0,0,0,0.5);
-}
-.ekko-lightbox-nav-overlay a:hover {
-    opacity: 1;
-}
 
-
-/* --- Gifts Section --- */
 .gifts-section { /* Was #gifts */
     color: var(--pdf-text-color);
 }
@@ -522,7 +475,7 @@ footer {
     border-top: 1px solid rgba(255,255,255,0.05);
 }
 footer .text-muted-pdf {
-    color: rgba(0, 0, 0, 0.6) !important;
+    color: rgba(2, 2, 2, 0.6) !important;
 }
 
 /* --- Music Player --- */
@@ -614,6 +567,15 @@ body {
   font-weight: 700;
   font-size: 2rem;
   color: var(--inv-text);
+}
+
+.yth-greeting {
+  font-family: var(--inv-serif);   /* Match the couple's name font */
+  font-weight: 700;
+  font-size: 2rem;
+  color: var(--inv-text);
+  text-align: center;
+  margin-bottom: 1rem;
 }
 
 /* Teks biasa */
